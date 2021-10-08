@@ -42,3 +42,4 @@ Screenshots
 ![Screenshot4](https://raw.githubusercontent.com/macskas/SSHAgentSecureProxy/master/.github/screenshots/menu-stats.png "Screenshot4")
 ![Screenshot5](https://raw.githubusercontent.com/macskas/SSHAgentSecureProxy/master/.github/screenshots/menu-settings.png "Screenshot5")
 ![Screenshot6](https://raw.githubusercontent.com/macskas/SSHAgentSecureProxy/master/.github/screenshots/menu-logs.png "Screenshot6")
+![Screenshot6](https://raw.githubusercontent.com/macskas/SSHAgentSecureProxy/master/.github/screenshots/menu-about.png "Screenshot6")
