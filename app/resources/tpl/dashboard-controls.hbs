@@ -1,0 +1,14 @@
+    <h5>controls</h5>
+    <p>
+        <button class="btn btn-sm btn-primary btn-dashboard-control" data-mode="default">mode: default</button>
+        <button class="btn btn-sm btn-success btn-dashboard-control" data-mode="bypass">mode: bypass</button>
+        <button class="btn btn-sm btn-danger btn-dashboard-control" data-mode="blocked">mode: block</button>
+    </p>
+
+    {{#if accept_seconds}}
+    <p>
+        {{#each accept_seconds}}
+        <button class="btn btn-sm btn-success btn-dashboard-control" data-mode="bypass-temp-{{ this }}">bypass: {{ this }}s</button>
+        {{/each}}
+    </p>
+    {{/if}}

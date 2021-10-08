@@ -1,0 +1,34 @@
+<div id="about-version-wrapper" class="p-3">
+    <p>Current version: <span class="text-muted">{{ about.currentVersion }}</span></p>
+    <p>Available version:
+        {{#if about.lastChecked}}
+    <table class="table table-sm table-bordered table-hover table-striped">
+        <tr><th>last checked</th><td>{{ about.lastChecked }}</td></tr>
+        <tr><th>release version</th><td>{{ about.updateVersion }}</td></tr>
+        <tr><th>release date</th><td>{{ about.releaseDate }}</td></tr>
+        <tr><th>release size</th><td>{{ about.releaseSizeMB }}</td></tr>
+        <tr><th>download.state</th><td>{{ about.state }}</td></tr>
+    </table>
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="progress fade" id="download-progress">
+                <div class="progress-bar" style="width: 0;"></div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="text-center text-muted small" id="download-progress-text"></div>
+        </div>
+    </div>
+    {{else}}
+    <span class="text-muted">-</span>
+    {{/if}}
+    </p>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <button class="btn btn-primary btn-check-for-updates btn-sm col-sm-3 m-1">Check for updates</button>
+        <button class="btn btn-success btn-download-update btn-sm col-sm-3 m-1" {{#unless about.update_available}}disabled="disabled"{{/unless}}>Download update</button>
+        <button class="btn btn-danger btn-upgrade btn-sm col-sm-3 m-1" {{#unless about.downloaded}}disabled="disabled"{{/unless}}>Upgrade</button>
+        <div class="col-sm-1"></div>
+    </div>
+    <div id="update-feedback"></div>
+</div>

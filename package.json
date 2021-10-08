@@ -1,0 +1,63 @@
+{
+  "name": "ssh-agent-secure-ui",
+  "version": "1.0.0",
+  "description": "SSH agent secure UI to approve reuse of your SSH socket.",
+  "main": "./app/index.js",
+  "scripts": {
+    "compile-templates": "handlebars ./app/resources/tpl/*.hbs -c handlebars/runtime -f app/resources/tpl/compiled.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder --publish never",
+    "deploy": "electron-builder --publish always"
+  },
+  "author": {
+    "name": "macskas",
+    "email": "macskas+sshagentproxy@gmail.com"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macskas/SSHAgentSecureProxy.git"
+  },
+  "build": {
+    "appId": "com.macskas.ssh-agent-secure-ui",
+    "compression": "store",
+    "productName": "SSHAgentSecureUI",
+    "icon": "app/resources/agent-icon-default.png",
+    "files": [
+	"!build{,/**/*}",
+	"!dist{,/**/*}",
+	"!**/._*",
+	"!**/.resources/*",
+	"!**/.github/*",
+	"!**/.git/*",
+	"!**/*.md",
+	"!**/*.yml"
+    ],
+    "linux": {
+      "category": "Utility",
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
+  "homepage": "https://github.com/macskas/SSHAgentSecureProxy",
+  "devDependencies": {
+    "electron": "^14.0.1",
+    "electron-builder": "^22.11.7"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "bootstrap4-notify": "^4.0.3",
+    "console-stamp": "^3.0.3",
+    "denque": "^2.0.1",
+    "electron-is-accelerator": "^0.2.0",
+    "electron-updater": "^4.3.9",
+    "handlebars": "^4.7.7",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "strftime": "^0.10.0",
+    "tether": "^1.4.7"
+  }
+}

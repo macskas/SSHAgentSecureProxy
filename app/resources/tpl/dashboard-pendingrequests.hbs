@@ -1,0 +1,38 @@
+    <table class="table table-striped table-hover table-sm table-bordered">
+        <caption style="caption-side: top;">pending requests: {{ pending_requests.length }}</caption>
+        <colgroup>
+            <col width="14%">
+            <col width="22%">
+            <col>
+            <col width="10%">
+            <col width="5%">
+            <col width="5%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>created&nbsp;at</th>
+            <th>key&nbsp;fingerprint</th>
+            <th>key&nbsp;name</th>
+            <th>remote&nbsp;username</th>
+            <th colspan="2">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each pending_requests}}
+        <tr>
+            <td><nobr>{{ this.created_at }}</nobr></td>
+            <td>{{ this.key_fingerprint }}</td>
+            <td>{{ this.key_comment }}</td>
+            <td>{{ this.remote_username }}</td>
+            <td><button class="btn btn-sm btn-block btn-success btn-pendingrequests-accept" data-client-id="{{ this.client_id }}">accept</button></td>
+            <td><button class="btn btn-sm btn-block btn-danger btn-pendingrequests-deny" data-client-id="{{ this.client_id }}">deny</button></td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{#if pending_requests.length}}
+    <p>
+        <button class="btn btn-sm btn-success btn-pendingrequests-acceptall">accept all</button>
+        <button class="btn btn-sm btn-danger btn-pendingrequests-denyall">deny all</button>
+    </p>
+    {{/if}}

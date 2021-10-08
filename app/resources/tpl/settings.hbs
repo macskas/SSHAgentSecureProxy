@@ -1,0 +1,102 @@
+    {{#each categories as | category |}}
+    <fieldset class="no-bootstrap">
+        <legend class="no-bootstrap">{{ category }}</legend>
+        {{#ifEquals category "controls"}}
+        <p><small class="form-text text-muted"><b>Modifiers</b>: CommandOrControl / Alt / Option / AltGr / Shift / Super / Meta</small></p>
+        <p>
+            <small class="form-text text-muted"><b>Key codes</b>:<br/>
+                <code>0</code>..<code>9</code>, <code>A</code>..<code>Z</code>, <code>F1</code>..<code>F24</code><br/>
+                <code>~</code>,<code>!</code>,<code>@</code>,<code>#</code>,<code>$</code>, etc.,<br/>
+                <code>Plus</code>, <code>Space</code>, <code>Tab</code>, <code>Capslock</code>, <code>Numlock</code>, <code>Scrolllock</code>,
+                <code>Backspace</code>, <code>Delete</code>, <code>Insert</code>, <code>Return</code><br/>
+                <code>Up</code>, <code>Down</code>, <code>Left</code>, <code>Right</code><br/>
+                <code>Home</code>, <code>End</code>, <code>PageUp</code>, <code>PageDown</code><br/>
+                <code>Escape</code><br/>
+                <code>VolumeUp</code>, <code>VolumeDown</code>, <code>VolumeMute</code><br/>
+                <code>MediaNextTrack</code>, <code>MediaPreviousTrack</code>, <code>MediaStop</code>, <code>MediaPlayPause</code><br/>
+                <code>PrintScreen</code><br/>
+                <code>num0</code>, <code>numdec</code>, <code>numsub</code>, <code>nummult</code>, <code>numdiv</code>
+            </small>
+        </p>
+        <p>
+            <small class="form-text text-muted"><b>Example</b>: CommandOrControl+F3</small>
+        </p>
+        {{/ifEquals}}
+
+        {{#ifEquals category "agent"}}
+        <div class="form-group row">
+            <label class="col-sm-7 col-form-label col-form-label-sm">agent state</label>
+            <div class="col-sm-3">
+                <small readonly class="form-control form-control-sm ssh-agent-state">{{#if ../ssh_agent_state}}started{{else}}stopped{{/if}}</small>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-sm btn-block btn-success btn-agent-start" {{#if ../ssh_agent_state}}disabled="disabled"{{/if}} >start</button>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-sm btn-block btn-danger btn-agent-stop" {{#unless ../ssh_agent_state}}disabled="disabled"{{/unless}} >stop</button>
+            </div>
+        </div>
+        {{/ifEquals}}
+
+            <form class="form-settings">
+                {{#each (lookup ../keys category)}}
+                    {{#unless this.internal}}
+                        {{#switch @key}}
+                            {{#case "agent.remote_path"}}
+                            <div class="form-group row">
+                                <label class="col-sm-7 col-form-label col-form-label-sm">{{ this.description }}</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control form-control-sm" placeholder="default: {{ this.default }}" name="{{ @key }}" data-type="{{ this.type }}" value="{{ this.value }}" />
+                                    <div class="feedback"></div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <small readonly="readonly" class="form-control text-center form-control-sm ssh-remote-agent-state"></small>
+                                </div>
+                                <div class="col-sm-1">
+                                    <button class="btn btn-sm btn-block btn-primary btn-remote-agent-test">test</button>
+                                </div>
+                            </div>
+                            {{/case}}
+                            {{#default ""}}
+                                <div class="form-group row">
+                                    <label class="col-sm-7 col-form-label col-form-label-sm">{{ this.description }}</label>
+                                    <div class="col-sm-5">
+                                        {{#switch this.type}}
+                                            {{#case 'boolean'}}
+                                                <select class="form-control form-control-sm" data-type="{{ this.type }}" name="{{ @key }}">
+                                                    <option value="1" {{#booleanMatch 1}}SELECTED{{/booleanMatch}}>yes</option>
+                                                    <option value="0" {{#booleanMatch 0}}SELECTED{{/booleanMatch}}>no</option>
+                                                </select>
+                                            {{/case}}
+                                            {{#case 'key'}}
+                                                <input type="text" class="form-control form-control-sm" placeholder="default: {{ this.default }}" name="{{ @key }}" data-type="{{ this.type }}" value="{{ this.default }}" />
+                                                <div class="feedback"></div>
+                                            {{/case}}
+                                            {{#case 'number'}}
+                                                <input type="number" min="{{ this.min }}" max="{{ this.max }}" class="form-control form-control-sm" placeholder="default: {{ this.default }}" name="{{ @key }}" data-type="{{ this.type }}" value="{{ this.value }}" />
+                                                <div class="feedback"></div>
+                                            {{/case}}
+                                            {{#case 'string'}}
+                                                <input class="form-control form-control-sm" placeholder="default: {{ this.default }}" name="{{ @key }}" data-type="{{ this.type }}" value="{{ this.value }}" />
+                                                <div class="feedback"></div>
+                                            {{/case}}
+                                        {{/switch}}
+                                    </div>
+                                </div>
+                            {{/default}}
+                        {{/switch}}
+                    {{/unless}}
+                {{/each}}
+        </form>
+    </fieldset>
+    {{/each}}
+    <fieldset class="no-bootstrap">
+        <legend class="no-bootstrap">action</legend>
+        <form class="">
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <button class="btn btn-success btn-block btn-custom-save">save</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>

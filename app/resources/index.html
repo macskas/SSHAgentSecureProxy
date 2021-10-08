@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SSH agent secure ui">
+    <meta name="author" content="macskas">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>SSH agent ui</title>
+    <style>
+        fieldset.no-bootstrap {
+            border: 1px dotted #ddd !important;
+            padding: 0 1.2em 0.2em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0 0 0 0 #000;
+            box-shadow: 0 0 0 0 #000;
+        }
+
+        legend.no-bootstrap {
+            font-size: 100%;
+            font-weight: bold;
+            width:inherit; /* Or auto */
+            padding:0 10px; /* To give a bit of padding on the left and right */
+            border-bottom:none;
+        }
+    </style>
+</head>
+<body style="-webkit-app-region: drag">
+<header>
+    <audio id="audio-newMessage">
+        <source src="message.mp3">
+    </audio>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a data-item="dashboard" class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a data-item="settings" class="nav-link" href="#">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a data-item="stats" class="nav-link" href="#">Stats</a>
+                </li>
+                <li class="nav-item">
+                    <a data-item="logs" class="nav-link" href="#">Logs</a>
+                </li>
+                <li class="nav-item">
+                    <a data-item="about" class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-sm-12">
+            <div id="main-wrapper"></div>
+        </main>
+    </div>
+</div>
+</body>
+<script src="renderer.js"></script>
+</html>

@@ -21,7 +21,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm install
     - run: npm ci
+    - run: npm run compile-templates
     - run: npm run build
     - name: Cleanup artifacts
       if: matrix.os != 'windows-latest'
