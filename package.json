@@ -22,7 +22,6 @@
   },
   "build": {
     "appId": "com.macskas.ssh-agent-secure-ui",
-    "compression": "maximum",
     "productName": "SSHAgentSecureUI",
     "icon": "app/resources/agent-icon-default.png",
     "files": [
