@@ -5,6 +5,8 @@ Description
 -----------
 If you are using ssh agent + agent forwarding to access servers, your ssh agent socket might be exposed to other superusers. This tools helps you secure your ssh-agent on a linux desktop. (might work on MacOS also, but havent tested)
 
+First I started using yubikey with ssh key, but the tooling on linux is just not there. If you are managing multiple servers using jump servers and loops it was just a pain. You dont know if the connection is stuck cos of the yubikey or its a real connection timeout. Yubikey(or any smartcard) + ssh is just not flexible atm.
+
 ### features:
 - Mask keys in ssh-add -l output. (optional, recommended)
 - Replaces your current running ssh agent (optional, can be changed in settings, recommended. Restores your original ssh-agent on exit.)
