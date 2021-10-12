@@ -3,6 +3,7 @@ const path = require('path');
 const UserSettings = require("../settings/usersettings");
 const globalEvents = require('../globalEvents');
 
+
 const myTray = new (function () {
     const self = this;
     let tray = null;
@@ -10,10 +11,12 @@ const myTray = new (function () {
     let mainWindow = null;
     let sshlock_mode = "default";
 
-    const image = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-default.png")).resize({ width: 128, height: 128 });
-    const image_new = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-redmarker.png")).resize({ width: 128, height: 128 });
-    const image_textgreen = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-textgreen.png")).resize({ width: 128, height: 128 });
-    const image_textred = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-textred.png")).resize({ width: 128, height: 128 });
+    const tray_size = process.platform === 'darwin' ? [ 24, 24 ] : [ 128, 128 ];
+
+    const image = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-default.png")).resize({ width: tray_size[0], height: tray_size[1] });
+    const image_new = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-redmarker.png")).resize({ width: tray_size[0], height: tray_size[1] });
+    const image_textgreen = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-textgreen.png")).resize({ width: tray_size[0], height: tray_size[1] });
+    const image_textred = nativeImage.createFromPath(path.join(__dirname, "../resources/agent-icon-textred.png")).resize({ width: tray_size[0], height: tray_size[1] });
 
     this.setTrayDefault = function () {
         if (tray_mode === "default") {
@@ -126,7 +129,7 @@ const myTray = new (function () {
     }
 
     const _init = function () {
-        tray = new Tray(image.resize({width: 128, height: 128}))
+        tray = new Tray(image);
         self.setTrayDefault();
         self.updateTrayMenu();
 

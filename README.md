@@ -1,9 +1,9 @@
 # SSHAgentSecureProxy
-Secure SSH Agent proxy for linux desktop environment.
+Secure SSH Agent proxy for Linux and MacOS desktop environment.
 
 Description
 -----------
-If you are using ssh agent + agent forwarding to access servers, your ssh agent socket might be exposed to other superusers. This tools helps you secure your ssh-agent on a linux desktop. (might work on MacOS also, but havent tested)
+If you are using ssh agent + agent forwarding to access servers, your ssh agent socket might be exposed to other superusers. This tools helps you secure your ssh-agent on a linux/macos desktop.
 
 First I started using yubikey with ssh key, but the tooling on linux is just not there. If you are managing multiple servers using jump servers and loops it was just a pain. You dont know if the connection is stuck cos of the yubikey or its a real connection timeout. Yubikey(or any smartcard) + ssh is just not flexible atm.
 
@@ -19,15 +19,17 @@ First I started using yubikey with ssh key, but the tooling on linux is just not
 
 How to start?
 -----------
-### linux - binary (appimage)
-- Just download the latest appImage and run it. Should work on any linux machine.
+### binary (appimage, dmg)
+- Just download the latest appImage/dmg and run it. Should work on any linux/macos machine. The binary is built by github workflow. 
 - Autoupdate supported.
-### linux - npm (if you already have npm, nodejs, etc installed it might be faster)
+
+### npm (if you already have npm, nodejs, etc installed it might be faster)
 - Install nodejs, npm.
 - Checkout git repo
 - npm install
 - npm compile-templates
 - npm start
+
 
 How to debug?
 -----------

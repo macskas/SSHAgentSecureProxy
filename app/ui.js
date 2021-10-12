@@ -181,6 +181,11 @@ app.whenReady().then(() => {
     myTray.setMainWindow(mainWindow);
 
     mainWindow.setIcon(image.resize({ width: 64, height: 64 }));
+
+    if (process.platform === 'darwin') {
+        app.dock.setIcon(image);
+    }
+
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'resources/index.html'),
         protocol: 'file:',

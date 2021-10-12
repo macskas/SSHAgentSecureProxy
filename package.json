@@ -25,19 +25,25 @@
     "productName": "SSHAgentSecureUI",
     "icon": "app/resources/agent-icon-default.png",
     "files": [
-	"!build{,/**/*}",
-	"!dist{,/**/*}",
-	"!**/._*",
-	"!**/.resources/*",
-	"!**/.github/*",
-	"!**/.git/*",
-	"!**/*.md",
-	"!**/*.yml"
+      "!build{,/**/*}",
+      "!dist{,/**/*}",
+      "!**/._*",
+      "!**/.resources/*",
+      "!**/.github/*",
+      "!**/.git/*",
+      "!**/*.md",
+      "!**/*.yml"
     ],
     "linux": {
       "category": "Utility",
       "target": [
         "AppImage"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg"
       ]
     }
   },
