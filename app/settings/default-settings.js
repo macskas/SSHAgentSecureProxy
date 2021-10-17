@@ -5,8 +5,8 @@ const isAccelerator = require('electron-is-accelerator');
 let default_settings = {
     "agent.listen_path": { default: "/tmp/sock", description: "My SSH agent socket", type: "string" },
     "agent.remote_path": { default: (process.env.SSH_AUTH_SOCK || ""), description: "Remote SSH agent socket", type: "string" },
-    "agent.override": { default: 0, description: "Override original agent socket", type: "boolean" },
-    "agent.mask_key_comment": { default: 0, description: "Mask key names", type: "boolean" },
+    "agent.override": { default: 1, description: "Override original agent socket", type: "boolean" },
+    "agent.mask_key_comment": { default: 1, description: "Mask key names", type: "boolean" },
     "lock.idle_seconds": { default: 600, description: "Idle seconds", type: "number", "min": 0, "max": 86400 },
     "dashboard.accept_seconds": { default: "600 1800", description: "Buttons in dashboard/tray", type: "string" },
     "notification.popup": { default: 1, description: "Notification popups", type: "boolean" },
