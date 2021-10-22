@@ -1,6 +1,8 @@
 # SSHAgentSecureProxy
 Secure SSH Agent proxy for Linux and MacOS desktop environment.
 
+![build](https://github.com/macskas/SSHAgentSecureProxy/actions/workflows/node.js.yml/badge.svg)
+
 Description
 -----------
 If you are using ssh agent + agent forwarding to access servers, your ssh agent socket might be exposed to other superusers. This tools helps you secure your ssh-agent on a linux/macos desktop.
