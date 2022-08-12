@@ -304,8 +304,9 @@ app.whenReady().then(() => {
         } else {
             keyName = path.basename(keyName);
         }
+
         if (info.username) {
-            NOTIFICATION_TITLE = "SSHAgent sign-request (ssh-connection)";
+            NOTIFICATION_TITLE = `SSHAgent sign-request (${info.service})`;
             NOTIFICATION_MESSAGE = `user: ${info.username}, alg: ${info.pkalg}, key: ${keyName}`;
         } else {
             NOTIFICATION_TITLE = "SSHAgent sign-request (non-ssh)";

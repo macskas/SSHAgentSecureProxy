@@ -136,7 +136,7 @@ const lSSHBuffer = function (instanceName) {
                 const msg_pkalg = message.slice(msgoffset, msgoffset + msg_pkalg_size);
                 msgoffset += msg_pkalg_size;
                 msgdata.pkalg = textdecoder.decode(msg_pkalg);
-                if (msgdata.service === "ssh-connection" && msgdata.method === "publickey" && msg_sig_follows === 1) {
+                if (msgdata.service.length > 0 && msgdata.service.length < 128 && msgdata.method === "publickey" && msg_sig_follows === 1) {
                     msgdata.complete = true;
                 }
             }
@@ -176,6 +176,7 @@ const lSSHBuffer = function (instanceName) {
                     pkalg: msgdata.pkalg,
                     fingerprint: pubkey_fingerprint,
                     session_id: msgdata.sessionid,
+                    service: msgdata.service,
                     hash: message_hash
                 };
                 console.log(`SIGN_REQUEST: key_full_size: ${key_full_size}, message_size: ${message_size}, fp: ${pubkey_fingerprint}, username: ${msgdata.username}, pkalg: ${msgdata.pkalg}`);
@@ -186,6 +187,7 @@ const lSSHBuffer = function (instanceName) {
                     pkalg: false,
                     fingerprint: pubkey_fingerprint,
                     session_id: false,
+                    service: msgdata.service,
                     hash: message_hash
                 };
             }
