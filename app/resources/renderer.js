@@ -564,7 +564,6 @@ const myView = new (function () {
                 case 'update-available':
                     const versionAvailable = arg1;
                     about.lastChecked = new Date();
-
                     if (subEventName === "update-not-available") {
                         about.update_available = false;
                         about.state = "Update not available. You are probably up2date";
@@ -593,7 +592,7 @@ const myView = new (function () {
                         }
                         about.releaseSizeMB = (about.releaseSize / 1024 / 1024).toFixed(1).toString() + " MB";
                         if (about.releaseSize) {
-                            if (subEventName === "update-availble") {
+                            if (subEventName === "update-available") {
                                 about.update_available = true;
                             }
                         }
