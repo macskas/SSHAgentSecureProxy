@@ -51,7 +51,7 @@
   "homepage": "https://github.com/macskas/SSHAgentSecureProxy",
   "devDependencies": {
     "electron": "^14.0.1",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^23.0.2"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
