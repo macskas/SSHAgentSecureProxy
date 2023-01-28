@@ -96,7 +96,12 @@ const IncomingSSHAgentConnection = function (client, remote_socket_path) {
             return false;
         }
         client.resume();
-        proxy_client.write(SSHBufferInput.getMessage());
+        if (!proxy_client) {
+            output_buffer.push(SSHBufferInput.getMessage());
+            this.proxy();
+        } else {
+            proxy_client.write(SSHBufferInput.getMessage());
+        }
         SSHBufferInput.reset();
         console.debug("resume()");
     }
