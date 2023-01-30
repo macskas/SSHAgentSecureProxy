@@ -1,6 +1,6 @@
 {
   "name": "ssh-agent-secure-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SSH agent secure UI to approve reuse of your SSH socket.",
   "main": "./app/index.js",
   "scripts": {
@@ -50,16 +50,16 @@
   },
   "homepage": "https://github.com/macskas/SSHAgentSecureProxy",
   "devDependencies": {
-    "electron": "^14.0.1",
-    "electron-builder": "^23.0.2"
+    "electron": "^21.4.0",
+    "electron-builder": "^23.6.0"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
     "bootstrap4-notify": "^4.0.3",
-    "console-stamp": "^3.0.3",
+    "console-stamp": "^3.1.0",
     "denque": "^2.0.1",
     "electron-is-accelerator": "^0.2.0",
-    "electron-updater": "^4.3.9",
+    "electron-updater": "^5.3.0",
     "handlebars": "^4.7.7",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",

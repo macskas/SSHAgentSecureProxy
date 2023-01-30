@@ -130,6 +130,7 @@ const myTray = new (function () {
 
     const _init = function () {
         tray = new Tray(image);
+
         self.setTrayDefault();
         self.updateTrayMenu();
 

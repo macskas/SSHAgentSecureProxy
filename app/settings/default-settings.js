@@ -22,7 +22,7 @@ let default_settings = {
     "window.height": { default: 600, description: "mainWindow.height", type: "number", min: 0, max: 3000, internal: true },
 
     "app.first_run": { default: 1, description: "app.first_run", type: "boolean", internal: true },
-    "app.version": { default: "1.0.2", description: "app.version", type: "string", internal: true }
+    "app.version": { default: "1.0.3", description: "app.version", type: "string", internal: true }
 };
 
 const numberValidator = function (lVal) {
